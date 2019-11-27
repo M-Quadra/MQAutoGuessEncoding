@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "MQKit",
+        "repositoryURL": "https://github.com/M-Quadra/MQKit",
+        "state": {
+          "branch": "master",
+          "revision": "7939b41255759572861e810a78ba937329ff7c47",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
