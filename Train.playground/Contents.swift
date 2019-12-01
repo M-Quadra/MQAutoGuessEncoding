@@ -7,4 +7,6 @@ let dataSet = try MLDataTable(contentsOf: dataSetURL)
 //let model = try MLLogisticRegressionClassifier(trainingData: dataSet, targetColumn: "coding")
 let model = try MLClassifier(trainingData: dataSet, targetColumn: "coding")
 
-//MLClassifier(trainingData: <#T##MLDataTable#>, targetColumn: <#T##String#>)
+let metadata = MLModelMetadata(author: "M_Quadra", shortDescription: "Auto Guess Encoding", version: "0.1.0")
+try model.write(to: URL(fileURLWithPath: "/Users/m_quadra/Desktop/optTs/MQAutoGuessEncoding.mlmodel"), metadata: metadata)
+

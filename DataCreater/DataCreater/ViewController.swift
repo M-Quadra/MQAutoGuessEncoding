@@ -23,80 +23,40 @@ class ViewController: UIViewController {
         return ary
     }()
     
-    let markHeader: String = {
-        let len = Int(UInt8.max) + 1
-        var cntAry = Array.init(repeating: 0, count: len)
-        for i in 0..<cntAry.count {
-            cntAry[i] = i
-        }
-        
-        let strAry = cntAry.map { String(format: "c%d", $0) }
-        return strAry.joined(separator: ",") + ",coding"
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let filePath = "/Users/m_quadra/Library/Mobile Documents/com~apple~CloudDocs/异化都市UTF8.txt"
-        let txtData = FileManager.default.contents(atPath: filePath) ?? Data()
-        let txt = String(data: txtData, encoding: .utf8) ?? ""
+//        let tsPath = "/Users/m_quadra/Downloads/今世猛男.txt"
+//        let tsPath = "/Users/m_quadra/Library/Mobile Documents/com~apple~CloudDocs/异化都市UTF8.txt"
+        let tsPath = "/Users/m_quadra/Library/Mobile Documents/com~apple~CloudDocs/异化都市[bookben.net].txt"
+        let txtPath = "/Users/m_quadra/Library/Mobile Documents/com~apple~CloudDocs/异化都市UTF8.txt"
+        let optPath = "/Users/m_quadra/Desktop/optTs/DataSet.csv"
         
-        var trainAry = [String]()
-        let gQue = OperationQueue()
-        let sQue = OperationQueue.mq_single
+        let dsUint8 = DatasetUint8(
+            txtPath: txtPath,
+            csvPath: optPath,
+            epochs: 10000
+        )
+//        dsUint8.create()
+//        return
         
-        for _ in 0..<100 {
-            autoreleasepool {
-                gQue.addOperation {
-                    var st = Int(arc4random())%txt.mq_count
-                    var ed = Int(arc4random())%txt.mq_count
-                    if st > ed {
-                        swap(&st, &ed)
-                    }
-                    
-                    let subStr = txt.mq_substring(with: st...ed)
-                    let train = self.markData(txt: subStr)
-                    
-                    sQue.addOperation {
-                        trainAry.append(train)
-                    }
-                }
-            }
+        let tsData = FileManager.default.contents(atPath: tsPath) ?? Data()
+        let stTime = Date().timeIntervalSince1970
+        print(Date().timeIntervalSince1970)
+        if let tsStr = dsUint8.autoStringTest(data: tsData) {
+            print(Date().timeIntervalSince1970 - stTime)//3.2s
+            print(tsStr.mq_substring(with: 0..<10))
         }
         
-        gQue.waitUntilAllOperationsAreFinished()
-        sQue.waitUntilAllOperationsAreFinished()
-        let trainStr = self.markHeader + "\n" + trainAry.joined(separator: "\n")
-        
-        try? trainStr.write(to: URL(fileURLWithPath: "/Users/m_quadra/Desktop/optTs/DataSet.csv"), atomically: true, encoding: .utf8)
-    }
-    
-    func markData(txt: String) -> String {
-        var optAry = [String]()
-        
-        let len = Int(UInt8.max) + 1//256
-        for v in self.codingRawValueAry {
-            autoreleasepool {
-                let coding = String.Encoding.init(rawValue: v)
-                guard let txtData = txt.data(using: coding) else {
-//                    continue
-                    return
-                }
-                
-                var cntAry = Array.init(repeating: 0, count: len)
-                let byteAry = txtData.map { Int($0.byteSwapped) }
-                for byte in byteAry {
-                    cntAry[byte] += 1
-                }
-                
-                let strAry = cntAry.map { String(format: "%d", $0) }
-                let str = strAry.joined(separator: ",") + String(format: ",%u", v)
-                optAry.append(str)
-            }
-        }
-        
-        return optAry.joined(separator: "\n")
+        return
+        let dsUint8xUint8 = DatasetUint8xUint8(
+            txtPath: txtPath,
+            csvPath: optPath,
+            epochs: 100
+        )
+        dsUint8xUint8.create()
     }
 
+    
 }
 

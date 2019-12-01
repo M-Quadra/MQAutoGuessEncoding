@@ -14,6 +14,9 @@
 		E74F793F238E78B700B39DC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E74F793E238E78B700B39DC3 /* Assets.xcassets */; };
 		E74F7942238E78B700B39DC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E74F7940238E78B700B39DC3 /* LaunchScreen.storyboard */; };
 		E74F794B238E796A00B39DC3 /* MQKit in Frameworks */ = {isa = PBXBuildFile; productRef = E74F794A238E796A00B39DC3 /* MQKit */; };
+		E7D78FBD238FCB3400D8C65F /* DatasetUint8.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D78FBC238FCB3400D8C65F /* DatasetUint8.swift */; };
+		E7D78FBF238FE6C700D8C65F /* MQAutoGuessEncoding-uint8.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E7D78FBE238FE6C700D8C65F /* MQAutoGuessEncoding-uint8.mlmodel */; };
+		E7D78FC2238FE94400D8C65F /* DatasetUint8xUint8.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D78FC1238FE94400D8C65F /* DatasetUint8xUint8.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		E74F793E238E78B700B39DC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E74F7941238E78B700B39DC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E74F7943238E78B700B39DC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7D78FBC238FCB3400D8C65F /* DatasetUint8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetUint8.swift; sourceTree = "<group>"; };
+		E7D78FBE238FE6C700D8C65F /* MQAutoGuessEncoding-uint8.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "MQAutoGuessEncoding-uint8.mlmodel"; sourceTree = "<group>"; };
+		E7D78FC1238FE94400D8C65F /* DatasetUint8xUint8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetUint8xUint8.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,9 @@
 		E74F7934238E78B500B39DC3 /* DataCreater */ = {
 			isa = PBXGroup;
 			children = (
+				E77445652390C40A006FDE12 /* Hex */,
+				E7D78FC0238FE71800D8C65F /* Uint8xUint8 */,
+				E7D78FBB238FCAF000D8C65F /* Uint8 */,
 				E74F7935238E78B500B39DC3 /* AppDelegate.swift */,
 				E74F7937238E78B500B39DC3 /* SceneDelegate.swift */,
 				E74F7939238E78B500B39DC3 /* ViewController.swift */,
@@ -67,6 +76,30 @@
 				E74F7943238E78B700B39DC3 /* Info.plist */,
 			);
 			path = DataCreater;
+			sourceTree = "<group>";
+		};
+		E77445652390C40A006FDE12 /* Hex */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Hex;
+			sourceTree = "<group>";
+		};
+		E7D78FBB238FCAF000D8C65F /* Uint8 */ = {
+			isa = PBXGroup;
+			children = (
+				E7D78FBE238FE6C700D8C65F /* MQAutoGuessEncoding-uint8.mlmodel */,
+				E7D78FBC238FCB3400D8C65F /* DatasetUint8.swift */,
+			);
+			path = Uint8;
+			sourceTree = "<group>";
+		};
+		E7D78FC0238FE71800D8C65F /* Uint8xUint8 */ = {
+			isa = PBXGroup;
+			children = (
+				E7D78FC1238FE94400D8C65F /* DatasetUint8xUint8.swift */,
+			);
+			path = Uint8xUint8;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +181,10 @@
 			files = (
 				E74F793A238E78B500B39DC3 /* ViewController.swift in Sources */,
 				E74F7936238E78B500B39DC3 /* AppDelegate.swift in Sources */,
+				E7D78FBF238FE6C700D8C65F /* MQAutoGuessEncoding-uint8.mlmodel in Sources */,
+				E7D78FC2238FE94400D8C65F /* DatasetUint8xUint8.swift in Sources */,
 				E74F7938238E78B500B39DC3 /* SceneDelegate.swift in Sources */,
+				E7D78FBD238FCB3400D8C65F /* DatasetUint8.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
