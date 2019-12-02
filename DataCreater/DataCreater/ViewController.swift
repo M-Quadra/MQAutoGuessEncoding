@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         let tsData = FileManager.default.contents(atPath: tsPath) ?? Data()
         let stTime = Date().timeIntervalSince1970
         print(Date().timeIntervalSince1970)
-        if let tsStr = dsUint8.autoStringTest(data: tsData) {
+        if let tsStr = dsUint8.test(data: tsData) {
             print(Date().timeIntervalSince1970 - stTime)//3.2s
             print(tsStr.mq_substring(with: 0..<10))
         }

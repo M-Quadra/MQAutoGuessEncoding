@@ -149,7 +149,7 @@ class DatasetUint8 { //base on uint8 count
         try? trainStr.write(to: URL(fileURLWithPath: self.csvPath), atomically: true, encoding: .utf8)
     }
     
-    func autoStringTest(data: Data) -> String? {
+    func test(data: Data) -> String? {
         var cntAry = Array.init(repeating: 0.0, count: Int(UInt8.max) + 1)
         var cnt = 0
         

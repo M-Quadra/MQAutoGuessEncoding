@@ -22,4 +22,10 @@ Auto guess encoding of Data/NSData
 
 然鹅, `CreateML`似乎是CPU单核训练, 不知道哪天能买得起eGPU
 
-速度太慢, 无限期推迟
+速度太慢, 弃用
+
+## Hex
+
+将`Data`转换为16进制表示, 通过`CreateML`进行文本分类
+
+虽然训练时显示`75%`左右的`acc`, 然而实际效果堪忧, 约等于不能用(或许姿势不对？)
