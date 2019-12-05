@@ -97,7 +97,7 @@ class DatasetUint8xUint8 { //base on uint8[last][next] count
                 
                 let str = cntAry.map {
                     $0.map { String(format: "%d", $0) }.joined(separator: ",")
-                }.joined(separator: ",") + String(format: ",%u", v)
+                }.joined(separator: ",") + String(format: ",c%u", v)
                 optAry.append(str)
             }
         }
