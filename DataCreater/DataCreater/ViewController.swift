@@ -26,12 +26,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let tsPath = "/Users/m_quadra/Downloads/今世猛男.txt"
-//        let tsPath = "/Users/m_quadra/Library/Mobile Documents/com~apple~CloudDocs/异化都市UTF8.txt"
-        let tsPath = "/Users/m_quadra/Library/Mobile Documents/com~apple~CloudDocs/异化都市[bookben.net].txt"
-        let txtPath = "/Users/m_quadra/Library/Mobile Documents/com~apple~CloudDocs/异化都市UTF8.txt"
-        let optPath = "/Users/m_quadra/Desktop/optTs/DataSet.csv"
+        let txtPath = "/Users/xxxx.txt"
+        let optPath = "/Users/xxxx/DataSet.csv"
         
+        let dsUint4xUint4 = DatasetUint4xUint4(
+            txtPath: txtPath,
+            csvPath: optPath,
+            epochs: 10000
+        )
+//        dsUint4xUint4.create()
+//        return
+        
+        let dsHex = DatasetHex(
+            txtPath: txtPath,
+            csvPath: optPath,
+            epochs: 10000
+        )
+//        dsHex.create()
+
         let dsUint8 = DatasetUint8(
             txtPath: txtPath,
             csvPath: optPath,
@@ -40,21 +52,12 @@ class ViewController: UIViewController {
 //        dsUint8.create()
 //        return
         
-        let tsData = FileManager.default.contents(atPath: tsPath) ?? Data()
-        let stTime = Date().timeIntervalSince1970
-        print(Date().timeIntervalSince1970)
-        if let tsStr = dsUint8.test(data: tsData) {
-            print(Date().timeIntervalSince1970 - stTime)//3.2s
-            print(tsStr.mq_substring(with: 0..<10))
-        }
-        
-        return
         let dsUint8xUint8 = DatasetUint8xUint8(
             txtPath: txtPath,
             csvPath: optPath,
             epochs: 100
         )
-        dsUint8xUint8.create()
+//        dsUint8xUint8.create()
     }
 
     

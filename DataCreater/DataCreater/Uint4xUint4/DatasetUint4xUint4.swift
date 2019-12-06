@@ -1,37 +1,36 @@
 //
-//  DatasetUint8.swift
+//  DatasetUint4xUint4.swift
 //  DataCreater
 //
-//  Created by M_Quadra on 2019/11/28.
+//  Created by M_Quadra on 2019/12/4.
 //  Copyright © 2019 M_noAria. All rights reserved.
 //
 
 import Foundation
-import MQKit
 
-class DatasetUint8 { //base on uint8 count
+class DatasetUint4xUint4 {
     
     let markHeader: String = {
-        let len = Int(UInt8.max) + 1
-        var cntAry = Array.init(repeating: 0, count: len)
-        for i in 0..<cntAry.count {
-            cntAry[i] = i
+        var optAry = [String]()
+        for u in 0..<16 {
+            for v in 0..<16 {
+                optAry.append(String(format: "c%dx%d", u, v))
+            }
         }
         
-        let strAry = cntAry.map { String(format: "c%d", $0) }
-        return strAry.joined(separator: ",") + ",coding"
+        return optAry.joined(separator: ",") + ",coding"
     }()
     
     let codingRawValueAry: [UInt] = {
-            let cfAry = CFStringEncodings.mq_AllValues.map { $0.mq_StringEncoding.rawValue }
-            let stAry = String.Encoding.mq_allValues.map { $0.rawValue }
-            
-            var uniSet = Set(cfAry + stAry)
-            
-            var ary = Array(uniSet)
-            ary.sort()
-            return ary
-    }()
+                let cfAry = CFStringEncodings.mq_AllValues.map { $0.mq_StringEncoding.rawValue }
+                let stAry = String.Encoding.mq_allValues.map { $0.rawValue }
+                
+                var uniSet = Set(cfAry + stAry)
+                
+                var ary = Array(uniSet)
+                ary.sort()
+                return ary
+        }()
     
     let dstRawValueAryUTF8: [UInt] = [ //some of encodings may crash, WTF
         1,
@@ -71,20 +70,20 @@ class DatasetUint8 { //base on uint8 count
         2550137088,
         2617245952,
     ]
-    
+        
     let txtPath: String
     let csvPath: String
     let epochs: Int
-    
+        
     init(txtPath: String, csvPath: String, epochs: Int) {
         self.txtPath = txtPath
         self.csvPath = csvPath
         self.epochs = max(1, epochs)
     }
-    
+        
     func markData(txt: String) -> String {
-        let len = Int(UInt8.max) + 1
         var optAry = [String]()
+        let len = 0xF + 1
         
         for v in self.dstRawValueAryUTF8 {
             autoreleasepool {
@@ -98,21 +97,28 @@ class DatasetUint8 { //base on uint8 count
                     return
                 }
                 
-                var cntAry = Array.init(repeating: 0, count: len)
+                var cntAry = Array.init(repeating: Array.init(repeating: 0, count: len), count: len)
+                var lastByte = 0
                 let byteAry = txtData.map { Int($0.byteSwapped) }
                 for byte in byteAry {
-                    cntAry[byte] += 1
+                    var tmp = byte&0xF
+                    cntAry[lastByte][tmp] += 1
+                    lastByte = tmp
+                    tmp = byte>>4
+                    cntAry[lastByte][tmp] += 1
+                    lastByte = tmp
                 }
                 
-                let strAry = cntAry.map { String(format: "%d", $0) }
-                let str = strAry.joined(separator: ",") + String(format: ",c%u", v)
+                let str = cntAry.map {
+                    $0.map { String(format: "%d", $0) }.joined(separator: ",")
+                }.joined(separator: ",") + String(format: ",c%u", v)
                 optAry.append(str)
             }
         }
         
         return optAry.joined(separator: "\n")
     }
-    
+        
     func create() {
         guard let txtData = FileManager.default.contents(atPath: self.txtPath) else {
             return

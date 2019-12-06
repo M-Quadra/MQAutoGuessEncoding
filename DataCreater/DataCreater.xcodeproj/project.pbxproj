@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E70C12E7239510910094A9EC /* DatasetHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70C12E6239510910094A9EC /* DatasetHex.swift */; };
+		E7206EE12397CC0A00A13002 /* DatasetUint4xUint4.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7206EE02397CC0A00A13002 /* DatasetUint4xUint4.swift */; };
 		E74F7936238E78B500B39DC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F7935238E78B500B39DC3 /* AppDelegate.swift */; };
 		E74F7938238E78B500B39DC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F7937238E78B500B39DC3 /* SceneDelegate.swift */; };
 		E74F793A238E78B500B39DC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F7939238E78B500B39DC3 /* ViewController.swift */; };
@@ -16,12 +17,12 @@
 		E74F7942238E78B700B39DC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E74F7940238E78B700B39DC3 /* LaunchScreen.storyboard */; };
 		E74F794B238E796A00B39DC3 /* MQKit in Frameworks */ = {isa = PBXBuildFile; productRef = E74F794A238E796A00B39DC3 /* MQKit */; };
 		E7D78FBD238FCB3400D8C65F /* DatasetUint8.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D78FBC238FCB3400D8C65F /* DatasetUint8.swift */; };
-		E7D78FBF238FE6C700D8C65F /* MQAutoGuessEncoding-uint8.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E7D78FBE238FE6C700D8C65F /* MQAutoGuessEncoding-uint8.mlmodel */; };
 		E7D78FC2238FE94400D8C65F /* DatasetUint8xUint8.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D78FC1238FE94400D8C65F /* DatasetUint8xUint8.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E70C12E6239510910094A9EC /* DatasetHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetHex.swift; sourceTree = "<group>"; };
+		E7206EE02397CC0A00A13002 /* DatasetUint4xUint4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetUint4xUint4.swift; sourceTree = "<group>"; };
 		E74F7932238E78B500B39DC3 /* DataCreater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataCreater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E74F7935238E78B500B39DC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E74F7937238E78B500B39DC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,7 +32,6 @@
 		E74F7941238E78B700B39DC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E74F7943238E78B700B39DC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7D78FBC238FCB3400D8C65F /* DatasetUint8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetUint8.swift; sourceTree = "<group>"; };
-		E7D78FBE238FE6C700D8C65F /* MQAutoGuessEncoding-uint8.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "MQAutoGuessEncoding-uint8.mlmodel"; sourceTree = "<group>"; };
 		E7D78FC1238FE94400D8C65F /* DatasetUint8xUint8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetUint8xUint8.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E7206EDF2397CB9F00A13002 /* Uint4xUint4 */ = {
+			isa = PBXGroup;
+			children = (
+				E7206EE02397CC0A00A13002 /* DatasetUint4xUint4.swift */,
+			);
+			path = Uint4xUint4;
+			sourceTree = "<group>";
+		};
 		E74F7929238E78B500B39DC3 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +74,7 @@
 		E74F7934238E78B500B39DC3 /* DataCreater */ = {
 			isa = PBXGroup;
 			children = (
+				E7206EDF2397CB9F00A13002 /* Uint4xUint4 */,
 				E77445652390C40A006FDE12 /* Hex */,
 				E7D78FC0238FE71800D8C65F /* Uint8xUint8 */,
 				E7D78FBB238FCAF000D8C65F /* Uint8 */,
@@ -91,7 +100,6 @@
 		E7D78FBB238FCAF000D8C65F /* Uint8 */ = {
 			isa = PBXGroup;
 			children = (
-				E7D78FBE238FE6C700D8C65F /* MQAutoGuessEncoding-uint8.mlmodel */,
 				E7D78FBC238FCB3400D8C65F /* DatasetUint8.swift */,
 			);
 			path = Uint8;
@@ -183,9 +191,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E70C12E7239510910094A9EC /* DatasetHex.swift in Sources */,
+				E7206EE12397CC0A00A13002 /* DatasetUint4xUint4.swift in Sources */,
 				E74F793A238E78B500B39DC3 /* ViewController.swift in Sources */,
 				E74F7936238E78B500B39DC3 /* AppDelegate.swift in Sources */,
-				E7D78FBF238FE6C700D8C65F /* MQAutoGuessEncoding-uint8.mlmodel in Sources */,
 				E7D78FC2238FE94400D8C65F /* DatasetUint8xUint8.swift in Sources */,
 				E74F7938238E78B500B39DC3 /* SceneDelegate.swift in Sources */,
 				E7D78FBD238FCB3400D8C65F /* DatasetUint8.swift in Sources */,

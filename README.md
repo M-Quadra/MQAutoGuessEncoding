@@ -1,10 +1,20 @@
 # MQAutoGuessEncoding
 
-Auto guess encoding of Data/NSData
+字符集编码检测, 使用`CreateML`训练(懒), 可能会上tf
 
-尽量直接使用`CreateML`训练模型(懒), 可能会用tf
+- 目前Uint4xUint4方案最优, 可能大概或许应该会更新
+- 截取前500byte作为输入, 不使用全量判断
+- 预筛选编码, 加速分类速度
 
-有些神奇的编码可能会出现崩溃, 原因未知
+# 未解之谜
+
+事先筛选了可以转换的编码类型, 有些神奇的编码转换可能会出现崩溃, 原因未知
+
+# 冷涩残垣
+
+[性能测试](./BaseTest.md)
+
+<del>踩坑</del>辣鸡手札, 按时间先后排序
 
 ## Uint8
 
@@ -29,3 +39,11 @@ Auto guess encoding of Data/NSData
 将`Data`转换为16进制表示, 通过`CreateML`进行文本分类
 
 虽然训练时显示`75%`左右的`acc`, 然而实际效果堪忧, 约等于不能用(或许姿势不对？)
+
+## Uint4xUint4
+
+将一个`Uint8`拆成2个`Uint4`, 统计各个`Uint4`后面跟随的每种`Uint4`数量
+
+特征数相较于只统计`Uint8`没有变化, 还能引入更多的位置信息,提高了`acc`, 并且推理速度快了`1ms`左右\_(:з」∠)_
+
+`acc`为`65~70%`
