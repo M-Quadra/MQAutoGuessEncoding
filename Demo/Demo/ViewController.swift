@@ -8,6 +8,7 @@
 
 import UIKit
 import MQAutoGuessEncoding
+import MQAutoGuessEncodingOC
 import MQKit
 
 class ViewController: UIViewController {
@@ -30,6 +31,7 @@ class ViewController: UIViewController {
             
             tsDataAry.append(txtData)
         }
+        let tsNSDataAry = tsDataAry.map { NSData(data: $0) }
         
         let uint4xuint4His = [
             0.3109607696533203,
@@ -50,16 +52,29 @@ class ViewController: UIViewController {
             2.051802158355713,
         ]
         
-        print(uint4xuint4His.reduce(0.0) { $0 + $1 } / Double(uint4xuint4His.count))
-        print(uint8His.reduce(0.0) { $0 + $1 } / Double(uint8His.count))
-        print(garbledCheckerHis.reduce(0.0) { $0 + $1 } / Double(garbledCheckerHis.count))
+        let uint4xuint4HisOC = [
+            0.33609509468078613,
+            0.33856916427612305,
+            0.33765292167663574,
+            0.3384971618652344,
+        ]
+        
+        print("uint4xuint4", "\t", uint4xuint4His.reduce(0.0) { $0 + $1 } / Double(uint4xuint4His.count))
+        print("uint8", "\t\t\t", uint8His.reduce(0.0) { $0 + $1 } / Double(uint8His.count))
+        print("garbledChecker", "\t", garbledCheckerHis.reduce(0.0) { $0 + $1 } / Double(garbledCheckerHis.count))
+        print()
+        print("uint4xuint4 OC", "\t", uint4xuint4HisOC.reduce(0.0) { $0 + $1 } / Double(uint4xuint4HisOC.count))
         
         if #available(iOS 11.0, *) {
             let stTime = Date().timeIntervalSince1970
+            
+//            for txtData in tsNSDataAry {
             for txtData in tsDataAry {
 //                let txt = txtData.mq_autoString_uint4xuint4()
 //                let txt = txtData.mq_autoString_uint8()
                 let txt = txtData.mq_autoString_GarbledChecker()
+
+//                let txt = txtData.mq_autoString()
                 
                 guard txt != nil else {
                     continue
@@ -67,6 +82,7 @@ class ViewController: UIViewController {
                 
 //                print("test text:", txt!.mq_substring(with: 0..<50))
             }
+            
             print("end:\n\t", Date().timeIntervalSince1970 - stTime)
         }
     }
