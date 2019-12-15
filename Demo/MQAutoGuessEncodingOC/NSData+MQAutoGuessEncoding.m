@@ -46,15 +46,22 @@ API_AVAILABLE(macos(10.13), ios(11.0), watchos(4.0), tvos(11.0)) __attribute__((
         double cntAry[16][16];
         memset(cntAry, 0, sizeof cntAry);
         UInt8 *bytes = (UInt8 *)self.bytes;
-        int lastByte = 0;
-        for (int i = 0; i < MIN(self.length, 500); ++i) {
-            int byte = bytes[i];
-            
-            (* cntAryPtr)[lastByte][byte&0xF] += 1;
-            lastByte = byte & 0xF;
-            byte >>= 4;
-            (* cntAryPtr)[lastByte][byte] += 1;
-            lastByte = byte;
+        
+        int offset = MAX((int)self.length - 500, 0)/50;
+        int idx = 0, lastByte = 0;
+        while (idx < self.length) {
+            for (int i = 0; i < 10; ++i) {
+                int byte = bytes[idx];
+                
+                (* cntAryPtr)[lastByte][byte&0xF] += 1;
+                lastByte = byte & 0xF;
+                byte >>= 4;
+                (* cntAryPtr)[lastByte][byte] += 1;
+                lastByte = byte;
+                
+                if (++idx >= self.length) break;
+            }
+            idx += offset;
         }
     });
     

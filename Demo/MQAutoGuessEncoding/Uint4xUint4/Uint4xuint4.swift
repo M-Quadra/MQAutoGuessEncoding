@@ -37,20 +37,24 @@ extension Data {
         let len = 16
         var cntAry = Array.init(repeating: Array.init(repeating: 0.0, count: len), count: len)
         
-        var lastByte = 0
-        var cnt = 0
-        for byte in self {
-            if cnt > 500 {
-                break
+        let offset = Swift.max(self.count - 500, 0)/50
+        
+        var idx = 0, lastByte = 0
+        while idx < self.count {
+            for _ in 0..<10 {
+                var byteInt = Int(self[idx])
+                cntAry[lastByte][byteInt & 0xF] += 1
+                lastByte = byteInt & 0xF
+                byteInt >>= 4
+                cntAry[lastByte][byteInt] += 1
+                lastByte = byteInt
+                
+                idx += 1
+                if idx >= self.count {
+                    break
+                }
             }
-            
-            cnt += 1
-            var byteInt = Int(byte.byteSwapped)
-            cntAry[lastByte][byteInt & 0xF] += 1
-            lastByte = byteInt & 0xF
-            byteInt >>= 4
-            cntAry[lastByte][byteInt] += 1
-            lastByte = byteInt
+            idx += offset
         }
         
         return cntAry

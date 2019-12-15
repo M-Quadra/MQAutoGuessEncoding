@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         let dsUint4xUint4 = DatasetUint4xUint4(
             txtPath: txtPath,
             csvPath: optPath,
-            epochs: 10000
+            epochs: 3000
         )
 //        dsUint4xUint4.create()
 //        return
