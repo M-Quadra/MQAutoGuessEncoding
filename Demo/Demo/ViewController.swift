@@ -54,10 +54,7 @@ class ViewController: UIViewController {
         ]
         
         let uint4xuint4HisOC = [
-            0.33805418014526367,
-            0.34148073196411133,
-            0.33992815017700195,
-            0.3395211696624756,
+            0.0,
         ]
         
         print("uint4xuint4", "\t", uint4xuint4His.reduce(0.0) { $0 + $1 } / Double(uint4xuint4His.count))
@@ -70,14 +67,17 @@ class ViewController: UIViewController {
             let stTime = Date().timeIntervalSince1970
             
 //            for txtData in tsNSDataAry {
-            for txtData in tsDataAry {
-//                let txt = txtData.mq_autoString_uint4xuint4()
+            for i in 0..<tsDataAry.count {
+                let txtData = tsDataAry[i]
+                
+                let txt = txtData.mq_autoString_uint4xuint4()
 //                let txt = txtData.mq_autoString_uint8()
-                let txt = txtData.mq_autoString_GarbledChecker()
+//                let txt = txtData.mq_autoString_GarbledChecker()
 
 //                let txt = txtData.mq_autoString()
                 
                 guard txt != nil else {
+                    print("AutoGuessEncoding fail:", tsPathAry[i])
                     continue
                 }
                 

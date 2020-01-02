@@ -10,7 +10,7 @@ import Foundation
 
 class DatasetUint4xUint4 {
     
-    let markHeader: String = {
+    static let header: String = {
         var optAry = [String]()
         for u in 0..<16 {
             for v in 0..<16 {
@@ -133,12 +133,15 @@ class DatasetUint4xUint4 {
         
         for _ in 0..<self.epochs {
             autoreleasepool {
-                let st = Int(arc4random())%(txt.mq_count-1100)
-                var ed = Int(arc4random())%1000
-                ed += st
-                
                 gQue.addOperation {
-                    let subStr = txt.mq_substring(with: st...ed)
+                    var subStr = ""
+                    for _ in 0..<10 {
+                        let st = Int(arc4random())%(txt.mq_count-110)
+                        var ed = Int(arc4random())%100
+                        ed += st
+                        
+                        subStr += txt.mq_substring(with: st...ed)
+                    }
                     let train = self.markData(txt: subStr)
                     
                     sQue.addOperation {
@@ -151,7 +154,7 @@ class DatasetUint4xUint4 {
         gQue.waitUntilAllOperationsAreFinished()
         sQue.waitUntilAllOperationsAreFinished()
         
-        let trainStr = self.markHeader + "\n" + trainAry.joined(separator: "\n")
+        let trainStr = trainAry.joined(separator: "\n")
         try? trainStr.write(to: URL(fileURLWithPath: self.csvPath), atomically: true, encoding: .utf8)
     }
 }

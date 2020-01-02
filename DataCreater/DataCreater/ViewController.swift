@@ -23,29 +23,26 @@ class ViewController: UIViewController {
         return ary
     }()
     
+    let txtPathAry = [
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let txtPath = "/Users/xxxx.txt"
-        let optPath = "/Users/xxxx/DataSet.csv"
+        let optPath = "/Users/m_quadra/Desktop/optTs/DataSet.csv"
         
-        let dsUint4xUint4 = DatasetUint4xUint4(
-            txtPath: txtPath,
-            csvPath: optPath,
-            epochs: 3000
-        )
-//        dsUint4xUint4.create()
-//        return
+        self.createDataset()
+        return
         
         let dsHex = DatasetHex(
-            txtPath: txtPath,
+            txtPath: txtPathAry[0],
             csvPath: optPath,
             epochs: 10000
         )
 //        dsHex.create()
 
         let dsUint8 = DatasetUint8(
-            txtPath: txtPath,
+            txtPath: txtPathAry[0],
             csvPath: optPath,
             epochs: 10000
         )
@@ -53,13 +50,41 @@ class ViewController: UIViewController {
 //        return
         
         let dsUint8xUint8 = DatasetUint8xUint8(
-            txtPath: txtPath,
+            txtPath: txtPathAry[0],
             csvPath: optPath,
             epochs: 100
         )
 //        dsUint8xUint8.create()
     }
 
+    func createDataset() {
+        var optAry = [String]()
+        
+        for i in 0..<txtPathAry.count {
+            let txtPath = txtPathAry[i]
+            let suboptPath = String(format: "/Users/m_quadra/Desktop/optTs/DataSet-%d.csv", i)
+            
+            let dsUint4xUint4 = DatasetUint4xUint4(
+                txtPath: txtPath,
+                csvPath: suboptPath,
+                epochs: 2000
+            )
+            dsUint4xUint4.create()
+            
+            guard let subData = FileManager.default.contents(atPath: suboptPath) else {
+                continue
+            }
+            guard let opt = String(data: subData, encoding: .utf8) else {
+                continue
+            }
+            optAry.append(opt)
+        }
+        
+        let optPath = "/Users/m_quadra/Desktop/optTs/DataSet.csv"
+        let opt = DatasetUint4xUint4.header + "\n" + optAry.joined(separator: "\n")
+        try? opt.write(to: URL(fileURLWithPath: optPath), atomically: true, encoding: .utf8)
+        print("output finish")
+    }
     
 }
 
