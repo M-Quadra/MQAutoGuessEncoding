@@ -10,7 +10,7 @@ import Foundation
 
 class DatasetUint8xUint8 { //base on uint8[last][next] count
     
-    let markHeader: String = {
+    static let markHeader: String = {
         let len = Int(UInt8.max) + 1
         var strAry = [String]()
         
@@ -137,7 +137,7 @@ class DatasetUint8xUint8 { //base on uint8[last][next] count
         gQue.waitUntilAllOperationsAreFinished()
         sQue.waitUntilAllOperationsAreFinished()
         
-        let trainStr = self.markHeader + "\n" + trainAry.joined(separator: "\n")
+        let trainStr = trainAry.joined(separator: "\n")
         try? trainStr.write(to: URL(fileURLWithPath: self.csvPath), atomically: true, encoding: .utf8)
     }
 }

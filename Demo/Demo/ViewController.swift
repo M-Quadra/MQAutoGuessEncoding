@@ -17,10 +17,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let tsPathAry = [
-            "",
-            "",
-            "",
-            "",
+            "/Users/m_quadra/Desktop/TestData/mdzs-utf8.txt",
+            "/Users/m_quadra/Desktop/TestData/jsmn-gb2312.txt",
+            "/Users/m_quadra/Desktop/TestData/jsmn-utf8.txt",
+            "/Users/m_quadra/Desktop/TestData/yhds-gb2312.txt",
+            "/Users/m_quadra/Desktop/TestData/yhds-utf8.txt",
+            "/Users/m_quadra/Desktop/TestData/wbqd-utf8.txt",
+            "/Users/m_quadra/Desktop/TestData/wbw-utf8.txt",
+            "/Users/m_quadra/Desktop/TestData/wbdl-gb2312.txt",
+            "/Users/m_quadra/Desktop/TestData/wbdl-utf8.txt",
+            "/Users/m_quadra/Desktop/TestData/wbzw-gb2312.txt",
+            "/Users/m_quadra/Desktop/TestData/wbzw-utf8.txt",
+            "/Users/m_quadra/Desktop/TestData/wbzh-utf8.txt",
         ]
         
         var tsDataAry = [Data]()
@@ -34,23 +42,13 @@ class ViewController: UIViewController {
         let tsNSDataAry = tsDataAry.map { NSData(data: $0) }
         
         let uint4xuint4His = [
-            0.30077314376831055,
-            0.30179905891418457,
-            0.3020181655883789,
-            0.30063796043395996,
-            0.30736732482910156,
+            0.0,
         ]
         let uint8His = [
-            0.30143213272094727,
-            0.3006319999694824,
-            0.3004429340362549,
-            0.30138587951660156,
+            0.0,
         ]
         let garbledCheckerHis = [
-            2.1697919368743896,
-            2.0125160217285156,
-            2.186439037322998,
-            2.106135845184326,
+            0.0,
         ]
         
         let uint4xuint4HisOC = [
@@ -70,8 +68,8 @@ class ViewController: UIViewController {
             for i in 0..<tsDataAry.count {
                 let txtData = tsDataAry[i]
                 
-                let txt = txtData.mq_autoString_uint4xuint4()
-//                let txt = txtData.mq_autoString_uint8()
+//                let txt = txtData.mq_autoString_uint4xuint4()
+                let txt = txtData.mq_autoString_uint8()
 //                let txt = txtData.mq_autoString_GarbledChecker()
 
 //                let txt = txtData.mq_autoString()
@@ -81,7 +79,7 @@ class ViewController: UIViewController {
                     continue
                 }
                 
-//                print("test text:", txt!.mq_substring(with: 0..<50))
+                print("test text:", txt!.mq_substring(with: 0..<50))
             }
             
             print("end:\n\t", Date().timeIntervalSince1970 - stTime)

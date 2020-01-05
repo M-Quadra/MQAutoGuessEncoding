@@ -11,7 +11,7 @@ import MQKit
 
 class DatasetUint8 { //base on uint8 count
     
-    let markHeader: String = {
+    static let markHeader: String = {
         let len = Int(UInt8.max) + 1
         var cntAry = Array.init(repeating: 0, count: len)
         for i in 0..<cntAry.count {
@@ -145,7 +145,7 @@ class DatasetUint8 { //base on uint8 count
         gQue.waitUntilAllOperationsAreFinished()
         sQue.waitUntilAllOperationsAreFinished()
         
-        let trainStr = self.markHeader + "\n" + trainAry.joined(separator: "\n")
+        let trainStr = trainAry.joined(separator: "\n")
         try? trainStr.write(to: URL(fileURLWithPath: self.csvPath), atomically: true, encoding: .utf8)
     }
 }

@@ -24,6 +24,13 @@ class ViewController: UIViewController {
     }()
     
     let txtPathAry = [
+        "/Users/m_quadra/Desktop/TestData/yhds-utf8.txt",
+        "/Users/m_quadra/Desktop/TestData/jsmn-utf8.txt",
+        "/Users/m_quadra/Desktop/TestData/wbw-utf8.txt",
+        "/Users/m_quadra/Desktop/TestData/wbdl-utf8.txt",
+        "/Users/m_quadra/Desktop/TestData/wbqd-utf8.txt",
+        "/Users/m_quadra/Desktop/TestData/wbzw-utf8.txt",
+        "/Users/m_quadra/Desktop/TestData/wbzh-utf8.txt",
     ]
     
     override func viewDidLoad() {
@@ -64,12 +71,13 @@ class ViewController: UIViewController {
             let txtPath = txtPathAry[i]
             let suboptPath = String(format: "/Users/m_quadra/Desktop/optTs/DataSet-%d.csv", i)
             
-            let dsUint4xUint4 = DatasetUint4xUint4(
+            let creator = DatasetUint8(
+//            let creator = DatasetUint4xUint4(
                 txtPath: txtPath,
                 csvPath: suboptPath,
                 epochs: 2000
             )
-            dsUint4xUint4.create()
+            creator.create()
             
             guard let subData = FileManager.default.contents(atPath: suboptPath) else {
                 continue
@@ -81,7 +89,8 @@ class ViewController: UIViewController {
         }
         
         let optPath = "/Users/m_quadra/Desktop/optTs/DataSet.csv"
-        let opt = DatasetUint4xUint4.header + "\n" + optAry.joined(separator: "\n")
+        let opt = DatasetUint8.markHeader + "\n" + optAry.joined(separator: "\n")
+//        let opt = DatasetUint4xUint4.header + "\n" + optAry.joined(separator: "\n")
         try? opt.write(to: URL(fileURLWithPath: optPath), atomically: true, encoding: .utf8)
         print("output finish")
     }

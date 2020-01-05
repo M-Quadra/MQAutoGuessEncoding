@@ -10,7 +10,7 @@ import Foundation
 
 class DatasetUint4xUint4 {
     
-    static let header: String = {
+    let markHeader: String = {
         var optAry = [String]()
         for u in 0..<16 {
             for v in 0..<16 {
