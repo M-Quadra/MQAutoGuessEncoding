@@ -29,6 +29,8 @@ class ViewController: UIViewController {
             "/Users/m_quadra/Desktop/TestData/wbzw-gb2312.txt",
             "/Users/m_quadra/Desktop/TestData/wbzw-utf8.txt",
             "/Users/m_quadra/Desktop/TestData/wbzh-utf8.txt",
+            "/Users/m_quadra/Desktop/TestData/wbyq-gb2312.txt",
+            "/Users/m_quadra/Desktop/TestData/wbyq-utf8.txt",
         ]
         
         var tsDataAry = [Data]()
@@ -68,8 +70,8 @@ class ViewController: UIViewController {
             for i in 0..<tsDataAry.count {
                 let txtData = tsDataAry[i]
                 
-//                let txt = txtData.mq_autoString_uint4xuint4()
-                let txt = txtData.mq_autoString_uint8()
+                let txt = txtData.mq_autoString_uint4xuint4()
+//                let txt = txtData.mq_autoString_uint8()
 //                let txt = txtData.mq_autoString_GarbledChecker()
 
 //                let txt = txtData.mq_autoString()
