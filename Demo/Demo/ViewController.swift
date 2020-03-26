@@ -31,6 +31,10 @@ class ViewController: UIViewController {
             "/Users/m_quadra/Desktop/TestData/wbzh-utf8.txt",
             "/Users/m_quadra/Desktop/TestData/wbyq-gb2312.txt",
             "/Users/m_quadra/Desktop/TestData/wbyq-utf8.txt",
+            "/Users/m_quadra/Desktop/TestData/wbbx-gb2312.txt",
+            "/Users/m_quadra/Desktop/TestData/wbbx-utf8.txt",
+            "/Users/m_quadra/Desktop/TestData/wbym-gb2312.txt",
+            "/Users/m_quadra/Desktop/TestData/wbym-utf8.txt",
         ]
         
         var tsDataAry = [Data]()
@@ -77,7 +81,7 @@ class ViewController: UIViewController {
 //                let txt = txtData.mq_autoString()
                 
                 guard txt != nil else {
-                    print("AutoGuessEncoding fail:", tsPathAry[i])
+                    print("[AutoGuessEncoding] fail:", tsPathAry[i])
                     continue
                 }
                 

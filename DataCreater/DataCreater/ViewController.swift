@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         "/Users/m_quadra/Desktop/TestData/wbzw-utf8.txt",
         "/Users/m_quadra/Desktop/TestData/wbzh-utf8.txt",
         "/Users/m_quadra/Desktop/TestData/wbyq-utf8.txt",
+        "/Users/m_quadra/Desktop/TestData/wbym-utf8.txt",
     ]
     
     override func viewDidLoad() {
