@@ -74,7 +74,7 @@ class ViewController: UIViewController {
             for i in 0..<tsDataAry.count {
                 let txtData = tsDataAry[i]
                 
-                let txt = txtData.mq_autoString_uint4xuint4()
+                let txt = txtData.mq_autoStringTest_uint4xuint4()
 //                let txt = txtData.mq_autoString_uint8()
 //                let txt = txtData.mq_autoString_GarbledChecker()
 

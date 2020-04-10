@@ -109,7 +109,7 @@ extension Data {
         return .init(rawValue: coding)
     }
     
-    public func mq_autoString_uint4xuint4() -> String? {
+    func mq_autoString_uint4xuint4() -> String? {
         guard let encoding = self.mq_autoGuessEncoding_uint4xuint4() else {
             return nil
         }

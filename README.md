@@ -1,23 +1,28 @@
 # MQAutoGuessEncoding
 
-字符集编码检测, 基于`CreateML`(懒), 可能会上tf
+字符集编码检测, 基于`CreateML`(懒), 不大可能会上tf
 
 - 目前Uint4xUint4方案最优, 可能大概或许应该会更新
 - 抽样输入500byte, 不使用全量判断
 - 预筛选编码, 加速分类速度
+- 不适合小数据
 
 # 移花接木
 
 - Swift
 
-已集成至[MQKit](https://github.com/M-Quadra/MQKit)
+```
+pod 'MQAutoGuessEncoding', :git => 'git@github.com:M-Quadra/MQAutoGuessEncoding.git'
+or
+pod 'MQAutoGuessEncoding', :git => 'https://github.com/M-Quadra/MQAutoGuessEncoding.git'
+```
 
 - Objective-C
 
 ```
-pod 'MQAutoGuessEncodingOC', :git => 'https://github.com/M-Quadra/MQAutoGuessEncoding.git'
-or
 pod 'MQAutoGuessEncodingOC', :git => 'git@github.com:M-Quadra/MQAutoGuessEncoding.git'
+or
+pod 'MQAutoGuessEncodingOC', :git => 'https://github.com/M-Quadra/MQAutoGuessEncoding.git'
 ```
 
 ```

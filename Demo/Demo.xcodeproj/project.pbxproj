@@ -13,11 +13,13 @@
 		E71A654223990AD6004B9571 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E71A654023990AD6004B9571 /* Main.storyboard */; };
 		E71A654423990AD8004B9571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E71A654323990AD8004B9571 /* Assets.xcassets */; };
 		E71A654723990AD8004B9571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E71A654523990AD8004B9571 /* LaunchScreen.storyboard */; };
+		E759D58E242C5A9E00BAC98E /* Data+MQAutoGuessEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759D58D242C5A9E00BAC98E /* Data+MQAutoGuessEncoding.swift */; };
 		E7891C82239B4924002B51FA /* MQAutoGuessEncodingOC.h in Headers */ = {isa = PBXBuildFile; fileRef = E7891C80239B4923002B51FA /* MQAutoGuessEncodingOC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7891C85239B4924002B51FA /* MQAutoGuessEncodingOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7891C7E239B4923002B51FA /* MQAutoGuessEncodingOC.framework */; };
 		E7891C86239B4924002B51FA /* MQAutoGuessEncodingOC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7891C7E239B4923002B51FA /* MQAutoGuessEncodingOC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E7891C8C239B49B4002B51FA /* NSData+MQAutoGuessEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = E7891C8A239B49B4002B51FA /* NSData+MQAutoGuessEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7891C8D239B49B4002B51FA /* NSData+MQAutoGuessEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = E7891C8B239B49B4002B51FA /* NSData+MQAutoGuessEncoding.m */; };
+		E79369BB242DB08000BDD2AC /* Data+MQAutoGuessEncodingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79369BA242DB08000BDD2AC /* Data+MQAutoGuessEncodingTest.swift */; };
 		E7A6BF68239A3F6200D1682B /* WordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A6BF66239A321000D1682B /* WordInfo.swift */; };
 		E7A6BF6A239A3FE800D1682B /* GarbledChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A6BF62239A2EE800D1682B /* GarbledChecker.swift */; };
 		E7A6BF6B239A437900D1682B /* MQGarbledChecker.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E7EAD3C82399210500C44624 /* MQGarbledChecker.mlmodel */; };
@@ -73,11 +75,13 @@
 		E71A654323990AD8004B9571 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E71A654623990AD8004B9571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E71A654823990AD8004B9571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E759D58D242C5A9E00BAC98E /* Data+MQAutoGuessEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+MQAutoGuessEncoding.swift"; sourceTree = "<group>"; };
 		E7891C7E239B4923002B51FA /* MQAutoGuessEncodingOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MQAutoGuessEncodingOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7891C80239B4923002B51FA /* MQAutoGuessEncodingOC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQAutoGuessEncodingOC.h; sourceTree = "<group>"; };
 		E7891C81239B4923002B51FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7891C8A239B49B4002B51FA /* NSData+MQAutoGuessEncoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+MQAutoGuessEncoding.h"; sourceTree = "<group>"; };
 		E7891C8B239B49B4002B51FA /* NSData+MQAutoGuessEncoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+MQAutoGuessEncoding.m"; sourceTree = "<group>"; };
+		E79369BA242DB08000BDD2AC /* Data+MQAutoGuessEncodingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+MQAutoGuessEncodingTest.swift"; sourceTree = "<group>"; };
 		E7A6BF62239A2EE800D1682B /* GarbledChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarbledChecker.swift; sourceTree = "<group>"; };
 		E7A6BF66239A321000D1682B /* WordInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordInfo.swift; sourceTree = "<group>"; };
 		E7DC2493239B5407006D5C0F /* MQAutoGuessEncoding_uint4xuint4.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MQAutoGuessEncoding_uint4xuint4.mlmodel; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				E7EAD3C323991F5700C44624 /* Uint4xUint4 */,
 				E7EAD3C223991F3B00C44624 /* Uint8 */,
 				E7EAD3B723991F1000C44624 /* MQAutoGuessEncoding.h */,
+				E759D58D242C5A9E00BAC98E /* Data+MQAutoGuessEncoding.swift */,
+				E79369BA242DB08000BDD2AC /* Data+MQAutoGuessEncodingTest.swift */,
 				E7EAD3B823991F1000C44624 /* Info.plist */,
 			);
 			path = MQAutoGuessEncoding;
@@ -385,6 +391,8 @@
 			files = (
 				E7EAD3CE239922A800C44624 /* Uint4xuint4.swift in Sources */,
 				E7EAD3DB23992BBF00C44624 /* Uint8.swift in Sources */,
+				E759D58E242C5A9E00BAC98E /* Data+MQAutoGuessEncoding.swift in Sources */,
+				E79369BB242DB08000BDD2AC /* Data+MQAutoGuessEncodingTest.swift in Sources */,
 				E7DC2494239B5407006D5C0F /* MQAutoGuessEncoding_uint4xuint4.mlmodel in Sources */,
 				E7DC2497239B5428006D5C0F /* MQAutoGuessEncoding_uint8.mlmodel in Sources */,
 			);
